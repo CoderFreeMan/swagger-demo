@@ -4,6 +4,7 @@ HELP.md
 *.jar
 mvnw*
 maven*
+.mvn
 
 ### STS ###
 .apt_generated
