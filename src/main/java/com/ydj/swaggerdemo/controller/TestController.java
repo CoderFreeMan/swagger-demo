@@ -22,15 +22,16 @@ public class TestController {
     )
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "用户 id 撒", required = true, paramType = "query", dataType = "int")
-            ,@ApiImplicitParam(name = "name", value = "用户名称撒", paramType = "query", dataType = "String")
+            , @ApiImplicitParam(name = "name", value = "用户名称撒", paramType = "query", dataType = "String")
     })
-    @ApiResponse(
-            code = 200
-            , message = "request success ~~~"
-            , response = User.class
+    @ApiResponses(
+            {
+                    @ApiResponse(code = 200, message = "request success ~~~", response = User.class),
+                    @ApiResponse(code = 200, message = "success")
+            }
     )
     @GetMapping(value = "/test")
-    public User getUserByIdAndName (Integer id, String name) {
+    public User getUserByIdAndName(Integer id, String name) {
         return new User(id, name);
     }
 
@@ -44,7 +45,7 @@ public class TestController {
     )
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "用户 id", required = true, paramType = "query", dataType = "int")
-            ,@ApiImplicitParam(name = "name", value = "用户名称", paramType = "query", dataType = "String")
+            , @ApiImplicitParam(name = "name", value = "用户名称", paramType = "query", dataType = "String")
     })
     @ApiResponse(
             code = 200
@@ -52,7 +53,7 @@ public class TestController {
             , response = User.class
     )
     @GetMapping(value = "/haha")
-    public User getUserById (Integer id, String name) {
+    public User getUserById(Integer id, String name) {
         return new User(id, name);
     }
 
